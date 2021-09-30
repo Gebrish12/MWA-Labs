@@ -3,16 +3,7 @@ const data = require('../data/games.json');
 
 const getAll = function(req,res){
     console.log("getALL request recieved");
-    var offset = 0;
-    var counter = 5;
-   if(req.query && req.query.offset){
-       offset = parseInt(req.query.offset);
-   }
-   if(req.query && req.query.counter){
-       counter = parseInt(req.query.counter);
-   }
-    const games = data.slice(offset,offset+counter);
-    res.status(200).json(games);
+    res.status(200).json(data);
 }
 
 //// additional self practice
