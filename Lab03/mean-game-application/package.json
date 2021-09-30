@@ -1,10 +1,10 @@
 {
-  "name": "app13",
+  "name": "app03",
   "version": "1.0.0",
   "description": "this is the end of lesson one",
-  "main": "app13.js",
+  "main": "app03.js",
   "scripts": {
-    "start": "nodemon app13.js",
+    "start": "nodemon app03.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
