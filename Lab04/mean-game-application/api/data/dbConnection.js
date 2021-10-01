@@ -9,7 +9,7 @@ console.log("DB connection failed");
 return;
 }
 _connection= client.db(dbName);
-console.log("DB connection open", _connection);
+console.log("DB connection open");
 });
 };
 var get= function() {
