@@ -1,9 +1,35 @@
 const express = require('express');
-const data = require('../data/games.json');
+const dbConnection = require('../data/dbConnection');
+
 
 const getAll = function(req,res){
     console.log("getALL request recieved");
-    res.status(200).json(data);
+    const db =dbConnection.get();
+    const gameCollection = db.collection("games");
+    var offset = 0;
+    var counter = 6;
+
+    if(req.query && req.query.offset){
+        offset =parseInt(req.query.offset);
+    }
+    if(req.query && req.query.counter){
+        var x =parseInt(req.query.counter);
+        if(x>9){
+            res.status(404).send("the count should not exceded morethan 9");
+            return;
+        }else{
+            counter =x;
+        }
+    }
+
+    gameCollection.find().skip(offset).limit(counter).toArray(function(err,games){
+        if(err){
+            res.status(500).send(err);
+            return
+        }else{
+            res.status(200).json(games)
+        }
+    })
 }
 
 //// additional self practice
