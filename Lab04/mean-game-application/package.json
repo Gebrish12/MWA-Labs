@@ -1,0 +1,20 @@
+{
+  "name": "app05",
+  "version": "1.0.0",
+  "description": "this is the end of lesson one",
+  "main": "app05.js",
+  "scripts": {
+    "start": "nodemon app05.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "npm"
+  ],
+  "author": "gebrish",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^4.1.2"
+  }
+}
