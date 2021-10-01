@@ -7,7 +7,7 @@ app.set("port",3000);
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json({extended:false}));
-app.use("/html",express.static(path.join(__dirname,"public")));
+app.use("/",express.static(path.join(__dirname,"public")));
 app.use("/api",router);
 
 const server = app.listen(app.get("port"),function(){
