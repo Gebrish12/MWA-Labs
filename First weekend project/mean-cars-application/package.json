@@ -1,0 +1,21 @@
+{
+  "name": "mean-cars-application",
+  "version": "1.0.0",
+  "description": "this is a mean car application",
+  "main": "app07.js",
+  "scripts": {
+    "start": "nodemon app07.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "mongoose"
+  ],
+  "author": "gebrish",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^4.1.2",
+    "mongoose": "^6.0.8"
+  }
+}
