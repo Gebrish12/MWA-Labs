@@ -2,9 +2,9 @@
   "name": "mean-game-application-using-mongoose",
   "version": "1.0.0",
   "description": "mean game application using mongoose",
-  "main": "app06.js",
+  "main": "app12.js",
   "scripts": {
-    "start": "nodemon app06.js",
+    "start": "nodemon app12.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

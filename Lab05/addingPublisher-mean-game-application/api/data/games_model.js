@@ -5,11 +5,7 @@ const publisherSchema = new mongoose.Schema({
     country :String
 
 });
-const ReviewSchema = new mongoose.Schema({
-    name:String,
-    review:String,
-    date:Date
-})
+
 const gameSchema = new mongoose.Schema({
     title: {
        type: String,
@@ -24,7 +20,7 @@ const gameSchema = new mongoose.Schema({
         max:5,
         "default":1
     }, 
-    review:[ReviewSchema],
+   
     publisher:publisherSchema
 
 });

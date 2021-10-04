@@ -16,12 +16,13 @@ const gameSchema = new mongoose.Schema({
         required:true
     },
     price: Number,
+    year:Date,
     minAge:Number,
     designers:[String],
     rate:{
         type:Number,
         min:1,
-        max:5,
+        max:10,
         "default":1
     }, 
     review:[ReviewSchema],

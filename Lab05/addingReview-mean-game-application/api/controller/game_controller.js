@@ -64,18 +64,13 @@ const getOne= function(req,res){
 
 const addone = function(req,res){
     console.log("adding Game request has recieved");
-    const newGame ={
-        title:req.body.title,
-        price :req.body.price,
-        rate:req.body.rate,
-        year:req.body.year,
-    }
-    Games.create(newGame,function(err,newGame){
+    const newGame = req.body;
+    Games.create(newGame,function(err,addedGame){
         if(err){
             res.status(500).json("adding the game unsuccessful");
             return;
         }else{
-            res.status(200).json(newGame);
+            res.status(200).json(addedGame);
         }
     });
 }

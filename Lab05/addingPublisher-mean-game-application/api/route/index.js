@@ -1,7 +1,6 @@
 const express = require("express");
 const gameController = require("../controller/game_controller");
 const publisherController = require("../controller/publisher_controller");
-const reviewController = require("../controller/review_controller")
 const router = express.Router();
 
 router.route("/games").get(gameController.getAll)

@@ -51,7 +51,7 @@ const getOne= function(req,res){
          }else{
              if(!student){
                  console.log("can not find student",student);
-                 res.status(404).json({"message":"student with the given id is not fount"})
+                 res.status(404).json({"message":"student with the given id is not found"})
                  return;
              }else{
                  console.log()
@@ -172,7 +172,7 @@ const updateStudent = function (req,res){
             }else{
                 student.name = req.body.name,
                 student.gpa = req.body.gpa,
-                // student.courses = [req.body.courses]
+                student.courses = req.body.courses
                 student.save(function(err,student){
                     if(err){
                         res.status(500).json(err);
