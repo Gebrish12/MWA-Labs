@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 require("./car_model");
-const dbName ="carCompanies";
-const dburl= "mongodb://localhost:27017/"+dbName;
+const dburl= process.env.DATABASE_URL +process.env.DATABASE_NAME;
 
 mongoose.connect(dburl);
 
 mongoose.connection.on("connected",function(){
-    console.log("the mongodb has successfully connected to",dbName);
+    console.log("the mongodb has successfully connected to",process.env.DATABASE_NAME);
 })
 // mongoose.connection.close("disConnected",function(){
 //     console.log("the mongodb has successfully disConnected");

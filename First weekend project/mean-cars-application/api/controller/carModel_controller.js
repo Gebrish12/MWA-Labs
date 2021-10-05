@@ -43,7 +43,7 @@ const getOne = function (req,res){
           res.status(500).json(err);
           return;
       }else{
-          console.log(company.carModels.length);
+          
           if (company.carModels.id(carID)){
             res.status(200).json(company.carModels.id(carID))
           }else{
@@ -97,7 +97,7 @@ const deletecar = function(req,res){
              res.status(400).json("the id that you provide doesn't satisfy the student id");
              return;
     }
-    Students.findById(companyID).select("courses").exec(function(err,company){
+    Company.findById(companyID).select("carModels").exec(function(err,company){
         if(err){
             res.status(500).json(err);
             return;
@@ -142,10 +142,10 @@ const deletecar = function(req,res){
         }else{
                  const car =company.carModels.id(carID);
                     if (car){
-                        carModels.name=req.body.name;
-                        carModels.price=req.body.price;
-                        carModels.date_production=req.body.date_production;
-                        carModels.mileage=req.body.mileage;
+                        car.name=req.body.name;
+                        car.price=req.body.price;
+                        car.date_production=req.body.date_production;
+                        car.mileage=req.body.mileage;
 
                         company.save(function(err,result){
                             if(err){
