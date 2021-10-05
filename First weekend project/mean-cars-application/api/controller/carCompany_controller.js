@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Company = mongoose.model("Company");
 
 const getAll = function(req,res){
-    console.log("get all request recieved");
+    console.log("get all company request recieved");
     var offset =0;
     var counter = 6;
 
@@ -20,7 +20,7 @@ const getAll = function(req,res){
 
     Company.find().skip(offset).limit(counter).exec(function(err,companies){
         if(err){
-            res.status(500).json({"message":"the collections of the cars can not be found"});
+            res.status(500).json({"message":"the collections of the companies can not be found"});
             return;
         }else {
             res.status(200).json(companies);
