@@ -19,7 +19,12 @@ const carCompanySchema = new mongoose.Schema({
         require:true
     },
     country:String,
-    rating:Number,
+    rating:{
+        type:Number,
+        min:0,
+        max:5,
+        "default":1
+    },
     carModels:[carModelSchema]
     
 })
