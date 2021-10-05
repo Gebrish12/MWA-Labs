@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 require("./car_model");
-const dbName ="meanCarsdb";
+const dbName ="carCompanies";
 const dburl= "mongodb://localhost:27017/"+dbName;
 
 mongoose.connect(dburl);

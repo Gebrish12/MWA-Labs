@@ -1,14 +1,22 @@
 const express = require("express");
-const controller = require("../controller/car_controller");
+const carModelcontroller = require("../controller/carModel_controller");
+const Companycontroller = require("../controller/carCompany_controller");
 const router = express.Router();
 
-router.route("/cars").get(controller.getAll)
-         .post(controller.addone)
-         ;
+router.route("/company").get(Companycontroller.getAllCompany)
+         .post(Companycontroller.addoneCompany)
+         
 
-router.route("/cars/:carID").get(controller.getOne)
-.delete(controller.deleteOne)
-.put(controller.updateOne);
+router.route("/company/:companyID").get(Companycontroller.getOneCompany)
+.delete(Companycontroller.deleteOneCompany)
+.put(Companycontroller.updateOneCompany);
 
+
+router.route("/company/:companyID/cars").get(carModelcontroller.getAllcars)
+.post(carModelcontroller.addcar);
+
+router.route("/company/:companyID/cars/:carID").get(carModelcontroller.getOnecar)
+.delete(carModelcontroller.deletecar)
+.put(carModelcontroller.updatecar);
 
 module.exports =router;

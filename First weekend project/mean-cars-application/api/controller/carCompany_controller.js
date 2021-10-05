@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Car = mongoose.model("Car");
+const Company = mongoose.model("Company");
 
 const getAll = function(req,res){
     console.log("get all request recieved");
@@ -18,12 +18,12 @@ const getAll = function(req,res){
         return;
     }
 
-    Car.find().skip(offset).limit(counter).exec(function(err,cars){
+    Company.find().skip(offset).limit(counter).exec(function(err,companies){
         if(err){
             res.status(500).json({"message":"the collections of the cars can not be found"});
             return;
         }else {
-            res.status(200).json(cars);
+            res.status(200).json(companies);
         }
     })
 
@@ -31,21 +31,21 @@ const getAll = function(req,res){
 }
 
 const getOne = function(req,res){
-       console.log("get one car request has recieved");
-       const carID =req.params.carID;
-     if(!mongoose.Types.ObjectId.isValid(carID)){
+       console.log("get one company request has recieved");
+       const companyID =req.params.companyID;
+     if(!mongoose.Types.ObjectId.isValid(companyID)){
          console.log("the given id doesn't satisfiy the id of the database");
          res.status(400).json({"message":"the given id doesn't satisfiy the id of the database"});
          return
      }
 
-     Car.findById(carID).exec(function(err,car){
+     Company.findById(companyID).exec(function(err,car){
          if(err){
-             res.status(500).json("the car with the given id is unavailable");
+             res.status(500).json("the company with the given id is unavailable");
              return;
          }else {
             if(!car){
-                res.status(404).json("invalid cars");
+                res.status(404).json("invalid company");
                 return;
             }else{
                 res.status(200).json(car);
@@ -55,36 +55,34 @@ const getOne = function(req,res){
 }
 
 const addone = function(req,res){
-    console.log("adding car request has recieved");
-    const newCar ={
+    console.log("adding company request has recieved");
+    const newCompany ={
         name:req.body.name,
-        date_production :req.body.date_production,
-        price:req.body.price,
-        brand:req.body.brand,
-        mileage:req.body.mileage
+        country:req.body.country,
+        rating:req.body.rating
     }
-    Car.create(newCar,function(err,newCar){
+    Company.create(newCompany,function(err,newCompany){
         if(err){
             res.status(500).json("adding the car unsuccessful");
             return;
         }else{
-            res.status(200).json(newCar);
+            res.status(200).json(newCompany);
         }
     });
 }
 
 const deleteOne = function(req,res){
     console.log("deleting one car request has recieved");
-    const carID =req.params.carID;
-    if(!mongoose.Types.ObjectId.isValid(carID)){
+    const companyID =req.params.companyID;
+    if(!mongoose.Types.ObjectId.isValid(companyID)){
         console.log("the given id doesn't satisfiy the id of the database");
         res.status(400).json({"message":"the given id doesn't satisfiy the id of the database"});
         return
     }
 
-    Car.findByIdAndRemove(carID).exec(function(err){
+    Company.findByIdAndRemove(companyID).exec(function(err){
         if(err){
-            res.status(500).json("the car with the given id is unavailable");
+            res.status(500).json("the company with the given id is unavailable");
             return;
         }else{
             res.status(200).json("deleted successfully");
@@ -95,35 +93,34 @@ const deleteOne = function(req,res){
 
 const updateOne = function(req,res){
     console.log("updating the car request has recieved");
-    const carID =req.params.carID;
-    console.log(carID);
-    if(!mongoose.Types.ObjectId.isValid(carID)){
+    const companyID =req.params.companyID;
+    console.log(companyID);
+    if(!mongoose.Types.ObjectId.isValid(companyID)){
         console.log("the given id doesn't satisfiy the id of the database");
         res.status(400).json({"message":"the given id doesn't satisfiy the id of the database"});
         return
     }
 
 
-    Car.findById(carID).exec(function(err,car){
+    Company.findById(companyID).exec(function(err,company){
         if(err){
-            res.status(500).json("the car with the given id is unavailable");
+            res.status(500).json("the company with the given id is unavailable");
             return;
         }else{
-            if(!car){
-                res.status(404).json("invalid cars");
+            if(!company){
+                res.status(404).json("invalid companys");
                 return;
             }else{
-                car.name=req.body.name,
-                car.date_production =req.body.date_production,
-                car.price=req.body.price,
-                car.brand=req.body.brand,
-                car.mileage=req.body.mileage
+                company.name=req.body.name,
+                company.country =req.body.country,
+                company.rating=req.body.rating,
+                
             
-            car.save(function(err,updateCar){
+            company.save(function(err,updatecompany){
                 if(err){
                     res.status(500).json(err);
                 }else{
-                    res.status(200).json(updateCar);
+                    res.status(200).json(updatecompany);
                 }
             })
         }
@@ -133,9 +130,9 @@ const updateOne = function(req,res){
 }
 
 module.exports = {
-    getAll:getAll,
-    getOne:getOne,
-    addone:addone,
-    deleteOne:deleteOne,
-    updateOne:updateOne
+    getAllCompany:getAll,
+    getOneCompany:getOne,
+    addoneCompany:addone,
+    deleteOneCompany:deleteOne,
+    updateOneCompany:updateOne
 }

@@ -25,7 +25,7 @@ const gameSchema = new mongoose.Schema({
         max:10,
         "default":1
     }, 
-    review:[ReviewSchema],
+    reviews:[ReviewSchema],
     publisher:publisherSchema
 
 });

@@ -61,60 +61,6 @@ const getOne= function(req,res){
     })
    
 };
-const getAllCourses = function(req,res){
-      console.log("get all courses request has received");
-      const studentID = req.params.studentID;
-
-      if(!mongoose.Types.ObjectId.isValid(studentID)){
-          console.log("invalid id");
-          res.status(400).json({"message":"the id you provide does't satisfy database id"});
-          return;
-      }
-      Students.findById(studentID).select("courses").exec(function(err,courses){
-          if(err){
-              console.log("invalid request");
-              res.status(500).json(err);
-              return;
-          }else {
-              res.status(200).json(courses);
-          }
-      })
-}
-
-const getOneCourse = function (req,res){
-    console.log("get one course request has recieved");
-    const studentID = req.params.studentID;
-    const courseID = req.params.courseID;
-    if (!mongoose.Types.ObjectId.isValid(studentID)){
-        console.log("invalid course id");
-        res.status(400).json(err);
-        return;
-    }
-    if (!mongoose.Types.ObjectId.isValid(courseID)){
-        console.log("invalid course id");
-        res.status(400).json(err);
-        return;
-    }
-    
-    Students.findById(studentID).select("courses").exec(function(err,course){
-        
-        if(err){
-            console.log("the course can not be found");
-            res.status(500).json(err);
-            return;
-        }else{
-            console.log(course.courses.length);
-            for (let i=0;i<course.courses.length;i++){
-               if(course.courses[i].id==courseID){
-                res.status(200).json(course.courses[i]);
-                return;
-               }
-            }
-
-           
-        }
-    })
-};
 
 const addStudent = function(req,res){
     console.log("adding student request has received");
@@ -193,8 +139,6 @@ const updateStudent = function (req,res){
 module.exports = {
     getAll:getAll,
     getOne:getOne,
-    getAllCourses:getAllCourses,
-    getOneCourse:getOneCourse,
     addStudent:addStudent,
     deleteStudent:deleteStudent,
     updateStudent:updateStudent

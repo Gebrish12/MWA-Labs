@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
-const carSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        require:true
-    },
+const carModelSchema = new mongoose.Schema({
+    name:String,
     data_production:{
         type:Number,
         require:true
@@ -13,9 +10,19 @@ const carSchema = new mongoose.Schema({
         type:Number,
         require:true
     },
-    brand:String,
     mileage:Number
 })
 
+const carCompanySchema = new mongoose.Schema({
+    name:{
+        type:String,
+        require:true
+    },
+    country:String,
+    rating:Number,
+    carModels:[carModelSchema]
+    
+})
 
-mongoose.model("Car",carSchema,"cars");
+
+mongoose.model("Company",carCompanySchema,"companies");

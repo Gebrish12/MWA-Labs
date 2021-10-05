@@ -20,7 +20,7 @@ module.exports.addReview = function(req,res){
                  res.status(404).json({"message":"the game is not found"});
                  return;
              }else{
-                Review.review =req.body.review;
+                Review.reviews =req.body.reviews;
             
            
                 Review.save(function(err,Review){

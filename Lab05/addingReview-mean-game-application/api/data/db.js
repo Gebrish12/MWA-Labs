@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 require('./games_model.js');
-const dbName= "meanGamesdb";
-const dburl= "mongodb://localhost:27017/"+dbName;
+const dburl= process.env.DATABASE_URL +process.env.DATABASE_NAME;
 
 mongoose.connect(dburl);
 
 mongoose.connection.on("connected",function(){
-    console.log("mongoose has successfully connected to",dbName);
+    console.log("mongoose has successfully connected to",process.env.DATABASE_NAME);
 });
 mongoose.connection.on("disConnected",function(){
     console.log("mongoose has successfully disConnected");
