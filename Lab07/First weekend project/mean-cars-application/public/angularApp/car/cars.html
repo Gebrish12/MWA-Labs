@@ -1,0 +1,9 @@
+<h1>Collections of {{vm.cars.name}} Company</h1>
+<ul>
+  <li ng-repeat="car in vm.cars.carModels">
+    <h4>Name: {{car.name}}</h4>
+    <p>price: {{car.price |currency}}</p>
+    <p>date_production: {{date_production}}</p>
+    <p>mileage: {{car.mileage}}</p>
+  </li>
+</ul>
