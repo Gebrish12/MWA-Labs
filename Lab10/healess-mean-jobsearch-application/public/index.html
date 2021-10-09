@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="JobSearch">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="./CSS/Css.css" rel="stylesheet" />
+    <title>job Searching</title>
+  </head>
+  <body>
+    <!-- <h1>Job Searching MEAN Application</h1> -->
+    <div ng-view></div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted text-center">
+          <a href="https://compro.miu.edu" target="_blank"
+            ><img
+              src="./img/compro-web-logo-442x112.png"
+              height="60"
+              alt="MIU 
+        Compro"
+          /></a>
+          <br />
+          <small class="text-black-50 text-center"
+            >&copy; 2021 Maharishi International University. All Rights
+            Reserved.
+          </small>
+        </p>
+      </div>
+    </footer>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.min.js"></script> -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+
+    <script src="./angularApp/app.js"></script>
+    <script src="./angularApp/dataFactory/dataFactory.js"></script>
+    <script src="./angularApp/jobs/jobsController.js"></script>
+    <script src="./angularApp/jobDetails/jobDetails.js"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<h1>details of {{vm.jobs.title}} job</h1>
+
+<p>Salary : {{vm.jobs.salary | currency}}</p>
+<p>Description : {{vm.jobs.description}}</p>
+<p>postDate : {{vm.jobs.postDate | date}}</p>
+<p>
+  Skills :
+  <span ng-repeat="skill in vm.jobs.skills">{{skill}}, </span>
+</p>

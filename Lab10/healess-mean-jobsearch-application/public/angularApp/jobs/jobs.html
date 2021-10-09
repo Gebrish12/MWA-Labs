@@ -1,0 +1,63 @@
+<h1>{{vm.header}}</h1>
+
+<ul>
+  <li ng-repeat="job in vm.jobs">
+    <a ng-href="#!/jobs/{{job._id}}"> {{job.title}} </a>
+    <button ng-click="vm.deleteJob(job._id)">Delete</button>
+  </li>
+</ul>
+
+<form name="vm.jobForm" ng-submit="vm.addJob()">
+  To add a new job please fill in all the fields below:<br />
+  Title:
+  <input
+    type="text"
+    name="title"
+    required
+    ng-model="vm.newjobTitle"
+    style="color: black"
+  /><br />
+  Salary:
+  <input
+    type="text"
+    name="salary"
+    required
+    ng-model="vm.newjobsalary"
+    style="color: black"
+  /><br />
+  exprience:
+  <input
+    type="text"
+    name="exprience"
+    required
+    ng-model="vm.newjobexprience"
+    style="color: black"
+  /><br />
+  postData:
+  <input
+    type="text"
+    name="postData"
+    required
+    ng-model="vm.newjobPostDate"
+    style="color: black"
+  /><br />
+  description:
+  <input
+    type="text"
+    name="description"
+    required
+    ng-model="vm.newjobDescription"
+    style="color: black"
+  /><br />
+  Skills:
+  <input
+    type="text"
+    name="skills"
+    required
+    ng-model="vm.newjobSkills"
+    style="color: black"
+  />
+
+  <br />
+  <button type="submit" style="background-color: yellow">Add Job</button><br />
+</form>
