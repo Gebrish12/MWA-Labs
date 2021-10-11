@@ -1,0 +1,16 @@
+<button class="btn btn-danger"> <a ng-href="/#/"> Home</a></button> <br/>   
+
+
+{{vm.header}}
+
+<ul>
+
+  <li ng-repeat="trip in vm.trip">
+  <a ng-href="#/trip/{{trip._id}}"> <p> Bike Id: {{trip.bikeid}}</a>  </p>
+    <p> User Type: {{trip.usertype}}</p>
+    
+  </li>
+</ul><br/>
+
+<button style="background-color: yellow" ng-click="vm.pre()">previous</button>
+<button style="background-color: yellow" ng-click="vm.next()">next</button><br/>

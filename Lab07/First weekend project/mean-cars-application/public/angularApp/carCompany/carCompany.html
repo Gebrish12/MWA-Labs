@@ -1,8 +1,47 @@
+<button style="background-color: rgb(9, 255, 0)">
+  <a ng-href="/#/"> Home </a>
+</button>
+
 <h1>{{vm.title}}</h1>
 
 <ul>
   <li ng-repeat="company in vm.companies">
     <a ng-href="#/company/{{company._id}}"> {{company.name}}</a>
-    <company-rating></company-rating>
+    <company-rating></company-rating><br />
+    <button class="btn btn-danger" ng-click="vm.deleteCompany(company._id)">
+      Delete Company</button
+    ><br />
   </li>
 </ul>
+
+<form name="vm.companyForm" ng-submit="vm.addcompany()">
+  To add a new company please fill in all the fields below:<br />
+  Brand Name:
+  <input
+    type="text"
+    name="name"
+    required
+    ng-model="vm.newcompanyname"
+    style="color: black"
+  /><br />
+  Country:
+  <input
+    type="text"
+    name="ountry"
+    required
+    ng-model="vm.newcompanycountry"
+    style="color: black"
+  /><br />
+
+  <br />
+  <button type="submit" style="background-color: yellow">Add company</button
+  ><br />
+</form>
+<br />
+<br />
+<br />
+<br />
+<button style="margin-right: 0%" class="btn btn-warning" ng-click="vm.pre()">
+  prevous
+</button>
+<button class="btn btn-warning" ng-click="vm.next()">next</button>

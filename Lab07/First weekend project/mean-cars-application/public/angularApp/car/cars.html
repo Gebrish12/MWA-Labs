@@ -1,9 +1,58 @@
+<button style="background-color: rgb(9, 255, 0)">
+  <a ng-href="/#/company"> Back</a>
+</button>
+<br />
 <h1>Collections of {{vm.cars.name}} Company</h1>
 <ul>
   <li ng-repeat="car in vm.cars.carModels">
-    <h4>Name: {{car.name}}</h4>
+    <h4>
+      Name: {{car.name}}
+      <button
+        class="btn btn-danger"
+        ng-click="vm.deletecar(vm.cars._id,car._id)"
+      >
+        Delete Car
+      </button>
+    </h4>
     <p>price: {{car.price |currency}}</p>
-    <p>date_production: {{date_production}}</p>
-    <p>mileage: {{car.mileage}}</p>
+    <p>date_production: {{car.date_production}}</p>
+    <p>mileage: {{car.mileage}} miles</p>
   </li>
 </ul>
+
+<form name="vm.carForm" ng-submit="vm.addcar(vm.cars._id)">
+  To add a new car please fill in all the fields below:<br />
+  Name:
+  <input
+    type="text"
+    name="name"
+    required
+    ng-model="vm.newcarname"
+    style="color: black"
+  /><br />
+  Price:
+  <input
+    type="text"
+    name="price"
+    required
+    ng-model="vm.newcarprice"
+    style="color: black"
+  /><br />
+  Mileage:
+  <input
+    type="text"
+    name="mileage"
+    required
+    ng-model="vm.newcarmileage"
+    style="color: black"
+  /><br />
+  Date Poduction:
+  <input
+    type="text"
+    name="date_production"
+    required
+    ng-model="vm.newcardate_production"
+    style="color: black"
+  /><br />
+  <button type="submit" style="background-color: yellow">Add car</button><br />
+</form>

@@ -1,0 +1,12 @@
+{{vm.header}}
+
+<p>Trip duration: {{vm.trip.tripduration}}</p>
+<p>Start Station Id : {{vm.trip['start station id']}}</p>
+<p>Start station name : {{vm.trip['start station name']}}</p>
+<p>Start time :{{vm.trip['start time']}}</p>
+<p>Stop time :{{vm.trip['stop time']}}</p>
+
+<button class="btn btn-danger" ng-click="vm.delete(trip._id)">
+  <a ng-href="/#/trip"> Delete</a>
+</button>
+<!-- <button class="btn btn-danger" ng-click="vm.delete(trip._id)">Delete</button> -->

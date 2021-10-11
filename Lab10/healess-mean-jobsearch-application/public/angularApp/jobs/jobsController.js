@@ -21,11 +21,15 @@ function jobController(dataFactory){
                exprience : vm.newjobexprience,
                skills :vm.newjobSkills
            }
-           console.log(vm.newjobpostDate)
-        //   if(vm.addJob.$valid){
-            dataFactory.addOneJob(newJob).then(function(){
-                console.log("games saved")
-           })
+      
+
+           if(vm.jobForm.$valid){
+            dataFactory.addOneJob(newJob).then(function(response){
+              vm.message="the job added successfully!";
+            }).catch(function(error){
+               vm.message="Error : the job is not added !";
+            });
+        }
           
           
        }
