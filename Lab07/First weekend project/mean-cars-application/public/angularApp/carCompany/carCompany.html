@@ -1,10 +1,59 @@
-<button style="background-color: rgb(9, 255, 0)">
-  <a ng-href="/#/"> Home </a>
-</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" ng-href="/#/">Home</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input
+          class="form-control me-sm-2"
+          type="text"
+          placeholder="Search"
+          ng-model="searchNAME"
+        />
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
 
 <h1>{{vm.title}}</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Company Name</th>
+      <th scope="col">Company Country</th>
+      <th scope="col">Models</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="table-active"
+      ng-repeat="company in vm.companies |filter :searchNAME"
+    >
+      <th scope="row">{{company.name}}</th>
 
-<ul>
+      <td>{{company.country}}</td>
+      <td>
+        <button class="btn btn-success">
+          <a ng-href="#/company/{{company._id}}"> Car Collections </a>
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-danger" ng-click="vm.deleteCompany(company._id)">
+          Delete Company
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <ul>
   <li ng-repeat="company in vm.companies">
     <a ng-href="#/company/{{company._id}}"> {{company.name}}</a>
     <company-rating></company-rating><br />
@@ -12,11 +61,20 @@
       Delete Company</button
     ><br />
   </li>
-</ul>
-
-<form name="vm.companyForm" ng-submit="vm.addcompany()">
-  To add a new company please fill in all the fields below:<br />
-  Brand Name:
+</ul> -->
+<button style="margin-right: 0%" class="btn btn-warning" ng-click="vm.pre()">
+  prevous
+</button>
+<button class="btn btn-warning" ng-click="vm.next()">next</button>
+<br />
+<br />
+<h5>To add a new company please fill in all the fields below:<br /></h5>
+<form
+  name="vm.companyForm"
+  ng-submit="vm.addcompany()"
+  style="display: table-caption"
+>
+  Company Name
   <input
     type="text"
     name="name"
@@ -37,10 +95,3 @@
   <button type="submit" style="background-color: yellow">Add company</button
   ><br />
 </form>
-<br />
-<br />
-
-<button style="margin-right: 0%" class="btn btn-warning" ng-click="vm.pre()">
-  prevous
-</button>
-<button class="btn btn-warning" ng-click="vm.next()">next</button>

@@ -3,7 +3,13 @@
   <p>{{ vm.message}}</p>
 
   <div ng if="vm.err" class="alert alert danger" role="alert">{{vm.err}}</div>
-  <form ng hide="vm.message" name="register" ng submit="vm.register()">
+  <form
+    ng
+    hide="vm.message"
+    name="register"
+    ng-submit="vm.register()"
+    style="display: table-caption"
+  >
     <div class="form group">
       <label for="username">Username</label>
       <input
@@ -11,8 +17,7 @@
         class="form control"
         id="username"
         placeholder="Username"
-        ng
-        model="vm.username"
+        ng-model="vm.username"
         autocapitalize="none"
       />
     </div>
@@ -23,8 +28,7 @@
         class="form control"
         id="password"
         placeholder="Password"
-        ng
-        model="vm.password"
+        ng-model="vm.password"
         autocapitalize="none"
       />
     </div>
@@ -35,11 +39,10 @@
         class="form control"
         id="password repeat"
         placeholder="Password"
-        ng
-        model="vm.passwordRepeat"
+        ng-model="vm.passwordRepeat"
         autocapitalize="none"
       />
     </div>
-    <button type="submit" class="btn btn success">Register</button>
+    <button type="submit" class="btn btn-warning">Register</button>
   </form>
 </div>

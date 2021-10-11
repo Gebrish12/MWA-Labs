@@ -4,7 +4,7 @@ const Company = mongoose.model("Company");
 const getAll = function (req, res) {
   console.log("get all company request recieved");
   var offset = 0;
-  var counter = 3;
+  var counter = 2;
 
   if (req.query && req.query.offset) {
     offset = parseInt(req.query.offset);

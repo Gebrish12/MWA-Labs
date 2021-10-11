@@ -1,9 +1,58 @@
-<button style="background-color: rgb(9, 255, 0)">
-  <a ng-href="/#/company"> Back</a>
-</button>
-<br />
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a ng-href="/#/company" style="color: red"> Back</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input
+          class="form-control me-sm-2"
+          type="text"
+          placeholder="Search"
+          ng-model="searchNAME"
+        />
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
 <h1>Collections of {{vm.cars.name}} Company</h1>
-<ul>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Car Name</th>
+      <th scope="col">Date of Production</th>
+      <th scope="col">Mileage(miles)</th>
+      <th scope="col">Price($)</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="table-active"
+      ng-repeat="car in vm.cars.carModels | filter :searchNAME"
+    >
+      <th scope="row">{{car.name}}</th>
+      <td>{{car.date_production}}</td>
+      <td>{{car.mileage}} miles</td>
+      <td>{{car.price |currency}}</td>
+      <td>
+        <button
+          class="btn btn-danger"
+          ng-click="vm.deletecar(vm.cars._id,car._id)"
+        >
+          Delete Car
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- <ul>
   <li ng-repeat="car in vm.cars.carModels">
     <h4>
       Name: {{car.name}}
@@ -18,11 +67,14 @@
     <p>date_production: {{car.date_production}}</p>
     <p>mileage: {{car.mileage}} miles</p>
   </li>
-</ul>
-
-<form name="vm.carForm" ng-submit="vm.addcar(vm.cars._id)">
-  To add a new car please fill in all the fields below:<br />
-  Name:
+</ul> -->
+<h5>To add a new car please fill in all the fields below:<br /></h5>
+<form
+  name="vm.carForm"
+  ng-submit="vm.addcar(vm.cars._id)"
+  style="display: table-caption"
+>
+  Name
   <input
     type="text"
     name="name"
@@ -30,7 +82,7 @@
     ng-model="vm.newcarname"
     style="color: black"
   /><br />
-  Price:
+  Price
   <input
     type="text"
     name="price"
@@ -38,7 +90,7 @@
     ng-model="vm.newcarprice"
     style="color: black"
   /><br />
-  Mileage:
+  Mileage
   <input
     type="text"
     name="mileage"
@@ -46,7 +98,7 @@
     ng-model="vm.newcarmileage"
     style="color: black"
   /><br />
-  Date Poduction:
+  Date Poduction
   <input
     type="text"
     name="date_production"

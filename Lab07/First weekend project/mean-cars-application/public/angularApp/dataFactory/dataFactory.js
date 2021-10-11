@@ -8,7 +8,11 @@ function dataFactory($http) {
     addOnecompany: addOnecompany,
     deleteOnecompany: deleteOnecompany,
     deleteOnecar: deleteOnecar,
+    adduser: adduser,
   };
+  function adduser(user) {
+    return $http.post("/api/users", user).then(complete).catch(failed);
+  }
   function deleteOnecar(companyID, carID) {
     return $http
       .delete("api/company/" + companyID + "/cars/" + carID)

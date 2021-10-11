@@ -17,7 +17,7 @@ function carCompanyController(dataFactory) {
     });
   };
   vm.pre = function () {
-    vm.offset -= 5;
+    vm.offset -= 2;
 
     if (vm.offset < 0) {
       vm.offset = 0;
@@ -25,7 +25,7 @@ function carCompanyController(dataFactory) {
     vm.getAll(vm.offset);
   };
   vm.next = function () {
-    vm.offset += 3;
+    vm.offset += 2;
     vm.getAll(vm.offset);
     setTimeout(() => {
       if (vm.companies.length === 0) {
