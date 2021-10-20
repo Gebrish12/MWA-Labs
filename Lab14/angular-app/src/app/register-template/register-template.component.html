@@ -1,0 +1,101 @@
+<form>
+  <!-- style="display: table-caption; margin-left: 40%; margin-top: 30%" -->
+  <!-- <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)"> -->
+  <div style="margin-left: 5%; margin-top: 5%">
+    <div>
+      <label>
+        Name:
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-control"
+          required
+          placeholder="your name"
+          [(ngModel)]="user.name"
+          #name="ngModel"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </label>
+      <label *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <span *ngIf="name.errors?.required">Name is required.</span>
+      </label>
+    </div>
+    <div>
+      <label>
+        Username:
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="form-control"
+          required
+          placeholder="your username"
+          [(ngModel)]="user.username"
+          #username="ngModel"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </label>
+      <label
+        *ngIf="username.invalid && (username.dirty || username.touched)"
+        class="alert"
+      >
+        <span *ngIf="username.errors?.required">username is required.</span>
+      </label>
+    </div>
+    <div>
+      <label>
+        Password:
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control"
+          required
+          minlength="4"
+          placeholder="your password"
+          [(ngModel)]="user.password"
+          #password="ngModel"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </label>
+      <label
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="alert"
+      >
+        <span *ngIf="password.errors?.minlength">
+          password must be at least 4 characters long.
+        </span>
+      </label>
+    </div>
+
+    <label>
+      Repeat Password:
+      <input
+        type="password"
+        name="repeatpassword"
+        class="form-control"
+        id="repeatpassword"
+        required
+        pattern="{{ password.value }}"
+        placeholder="confirm password"
+        [(ngModel)]="user.repeatpassword"
+        [ngModelOptions]="{ standalone: true }"
+        #repeatpassword="ngModel"
+      />
+    </label>
+    <label
+      *ngIf="
+        (repeatpassword.dirty || repeatpassword.touched) &&
+        repeatpassword.invalid
+      "
+      class="alert"
+    >
+      <span *ngIf="repeatpassword.errors?.pattern">
+        Passwords Don't Match
+      </span>
+    </label>
+  </div>
+  <button (click)="addUser()" style="margin-left: 5%">Register</button>
+  <button (click)="onClear()">Clear</button>
+</form>

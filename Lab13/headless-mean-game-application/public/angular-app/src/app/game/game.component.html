@@ -1,0 +1,13 @@
+<h1>Information about {{ game.title }}</h1>
+
+<p>
+  Title: {{ game.title }}<br />
+  Year: {{ game.year }}<br />
+  Rate: {{ game.rate }}<br />
+  Price: {{ game.price | currency }}<br />
+  Minimum Players: {{ game.minPlayers }}<br />
+  Maximum Players: {{ game.maxPlayers }}<br />
+  <!-- // Designers: {{ game.designers }}<br /> -->
+  <br />
+</p>
+<button (click)="deleteGame(game._id)" (click)="Games()">DELETE GAME</button>

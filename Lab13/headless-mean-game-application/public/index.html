@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="meanGamesdb">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="CSS/custom.css" rel="stylesheet" />
+    <title>MEAN Game</title>
+</head>
+<body>
+    <!-- <h1> Mean Game Page</h1> -->
+<!-- <button><a ng-href="/#!/"> HOME  </a> </button>
+<button><a ng-href="/#!/games"> GAMES </a></button>  -->
+  
+<div ng-view></div>
+<!-- hello{{"Jack" | lowercase}} -->
+
+
+
+    <footer class="footer">
+        <div class="container">
+        <p class="text-muted 
+        text-center">
+       
+        <a href="https://compro.miu.edu"  target="_blank"><img  src="./image/compro-web-logo-442x112.png" 
+            height="60" alt="MIU 
+        Compro"></a>
+        <br/>
+        <small class="text-black-50 text-center">&copy; 
+        2021 Maharishi International 
+        University. All Rights Reserved. 
+        </small>
+        </p>
+        </div>
+        </footer>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.min.js"></script> -->
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-route/angular-route.js"></script>
+        
+        <script src="./angularApp/app.js"></script>
+        <script src="./angularApp/main/welcomeController.js"></script>
+        <script src="./angularApp/game-list/gameList-Controller.js"></script>
+        <script src="angularApp/game-data-Factory/game-data-factory.js"></script>
+        <script src="angularApp/game/gameOneController.js"> </script>
+        <script src="./angularApp/game-rating/game-rating.js"></script>
+       
+        
+</html>
