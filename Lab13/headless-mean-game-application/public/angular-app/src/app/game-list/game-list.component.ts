@@ -44,6 +44,6 @@ price!:number;
 year!:number;
 minPlayers!:number;
 maxPlayers!:number;
-//designers!:String
+
 
 }

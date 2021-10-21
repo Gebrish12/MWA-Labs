@@ -1,6 +1,6 @@
 angular.module("meanGamesdb").controller("gameController", gameController);
 
-function gameController(gameDataFactory, $routeParams) {
+function gameController($route, gameDataFactory, $routeParams) {
   const vm = this;
   const gameID = $routeParams.gameID;
 
@@ -13,6 +13,20 @@ function gameController(gameDataFactory, $routeParams) {
   vm.deleteGame = function (id) {
     gameDataFactory.deleteGame(id).then(function () {
       console.log("deleted successfully");
+    });
+  };
+  vm.updateGame = function (id) {
+    const updatedGame = {
+      title: vm.newgametitle,
+      rate: vm.newgamerate,
+      price: vm.newgameprice,
+      year: vm.newgameyear,
+      minPlayers: vm.newgameminPlayers,
+      maxPlayers: vm.newgamemaxPlayers,
+    };
+    gameDataFactory.updateGame(id, updatedGame).then(function () {
+      console.log("updated successfully");
+      $route.reload();
     });
   };
 }

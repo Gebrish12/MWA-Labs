@@ -133,6 +133,8 @@ const updateOne = function (req, res) {
         (game.title = req.body.title), (game.price = req.body.price);
         (game.rate = req.body.rate),
           (game.year = req.body.year),
+          (game.minPlayers = req.body.minPlayers),
+          (game.maxPlayers = req.body.maxPlayers),
           game.save(function (err, updateGame) {
             if (err) {
               res.status(500).json(err);

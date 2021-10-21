@@ -15,17 +15,26 @@ import { GamesDataService } from '../games-data.service';
 export class GameComponent implements OnInit {
 
   game: Game= {} as Game;
+  newgame :updatedGame = {} as updatedGame;
 
   constructor(private gamesDataService:GamesDataService,private _route:Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     const gameId:string=this.route.snapshot.params.gameId;
     this.getGame(gameId);
+    this.updateGame(gameId)
   }
 
   deleteGame(gameId: string){
     this.gamesDataService.deleteGame(gameId).then(function(){console.log("deleted successfully")})
     .catch(this.handleError);;
+  }
+  updateGame(gameId:string,){
+    this.gamesDataService.updateGame(gameId,this.newgame).subscribe(data => {
+      console.log(data)
+     
+    })  
+
   }
 Games(){
   this._route.navigate(["games"])
@@ -46,5 +55,15 @@ Games(){
     
   }
 
+ }
+export class  updatedGame{
+  _id!:String;
+  title!:string;
+  rate!:number;
+  price!:number;
+  year!:number;
+  minPlayers!:number;
+  maxPlayers!:number;
+  
 }
-
+  

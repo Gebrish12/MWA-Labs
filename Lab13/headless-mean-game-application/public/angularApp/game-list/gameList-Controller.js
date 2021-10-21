@@ -2,7 +2,7 @@ angular
   .module("meanGamesdb")
   .controller("gameListController", gameListController);
 
-function gameListController(gameDataFactory) {
+function gameListController($route, gameDataFactory) {
   const vm = this;
   vm.title = "List of games";
   gameDataFactory.getAllGames().then(function (response) {
@@ -22,6 +22,7 @@ function gameListController(gameDataFactory) {
     gameDataFactory.addGame(newGame).then(function (newgame) {
       console.log(newgame);
       console.log("added successfully");
+      $route.reload();
     });
   };
 }

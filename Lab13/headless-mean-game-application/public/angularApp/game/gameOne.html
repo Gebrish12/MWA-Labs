@@ -4,10 +4,64 @@
     <p>
         Rating: <game-rating  ></game-rating> <br/>
     Price: {{vm.game.price | currency}}<br/>
+    Year: {{vm.game.year}}</br>
     Minimum Players: {{vm.game.minPlayers}}<br/>
     Maximum Players: {{vm.game.maxPlayers}}<br/>
-    Minimum Age: {{vm.game.minAge}}</br>
-    Publisher: {{vm.game.publisher.name}}
+    
     </p>
 
     <button ng-click="vm.deleteGame(vm.game._id)" > <a ng-href="/#!/games"> DELETE GAME</a></button>
+
+    <form name="vm.games" ng-submit="vm.updateGame(vm.game._id)">
+        To update a Game please fill in all the fields below:<br />
+        Title:
+        <input
+          type="text"
+          name="title"
+          required
+          ng-model="vm.newgametitle"
+          style="color: black"
+        /><br />
+        Rate:
+        <input
+          type="text"
+          name="rate"
+          required
+          ng-model="vm.newgamerate"
+          style="color: black"
+        /><br />
+        Price:
+        <input
+          type="text"
+          name="price"
+          required
+          ng-model="vm.newgameprice"
+          style="color: black"
+        /><br />
+        Year:
+        <input
+          type="text"
+          name="year"
+          required
+          ng-model="vm.newgameyear"
+          style="color: black"
+        /><br />
+        Minimum Players:
+        <input
+          type="text"
+          name="minPlayers"
+          required
+          ng-model="vm.newgameminPlayers"
+          style="color: black"
+        /><br />
+        Maximum Players:
+        <input
+          type="text"
+          name="maxPlayers"
+          required
+          ng-model="vm.newgamemaxPlayers"
+          style="color: black"
+        /><br />
+      
+        <button type="submit">Update Game</button><br />
+      </form>

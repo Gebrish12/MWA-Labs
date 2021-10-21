@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 import { Game } from './game-list/game-list.component';
 import { Observable } from 'rxjs';
+import { updatedGame } from './game/game.component';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,15 @@ export class GamesDataService {
   return this.http.post(url,body,{'headers':headers});
              
 }
+ public updateGame(gameId:string,newgame:updatedGame): Observable<any> {
+  const url:string=this.apiBaseUrl+"/games/"+gameId;
+  const headers = { 'content-type': 'application/json'}  
+  const body=JSON.stringify(newgame);
+  console.log(body);
+  return this.http.put(url,body,{'headers':headers});
+             
+}
+
 
 
 

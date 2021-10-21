@@ -6,7 +6,15 @@ function gameDataFactory($http) {
     getOneGame: getOne,
     deleteGame: deleteGame,
     addGame: addGame,
+    updateGame: updateGame,
   };
+
+  function updateGame(id, game) {
+    return $http
+      .put("/api/games/" + id, game)
+      .then(complete)
+      .catch(failed);
+  }
 
   function addGame(game) {
     return $http.post("/api/games", game).then(complete).catch(failed);
