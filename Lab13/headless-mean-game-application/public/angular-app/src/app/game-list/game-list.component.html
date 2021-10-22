@@ -1,7 +1,11 @@
 <h1>list of Games</h1>
-<ul *ngFor="let game of games">
-  <li>
-    <a routerLink="/game/{{ game._id }}">{{ game.title }}</a>
+<ul>
+  <li *ngFor="let game of games">
+    <a
+      style="color: blue; text-decoration: underline"
+      routerLink="/game/{{ game._id }}"
+      >{{ game.title }}</a
+    >
   </li>
 </ul>
 
